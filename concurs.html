@@ -1,0 +1,116 @@
+<head>
+  <title>My Favs</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>My Favs</h1>
+			<form class="new-entry col s12 card-panel teal lighten-3">
+				<select name="type" class="browser-default">
+					<option value = "0" disabled selected>What do you want to add?</option>
+					<option value = "MOVIE">Movie</option>
+					<option value = "BOOK">Book</option>
+					<option value = "RESTAURANT">Restaurant</option>
+					<option value = "GAME">Game</option>
+					<option value = "PARK">Park</option>
+				</select>
+
+				<br />
+
+				<div class="row">
+					<div class="input-field col s6">
+					    <input id="nume" type="text" name="text">
+					    <label for="nume">Name</label>
+					</div>
+
+					<div class="input-field col s6">
+					    <input id="extra" type="text" name="extra">
+					    <label for="extra">author/release date/adress</label>
+					</div>
+				</div>
+
+				<select name="grade" class="browser-default">
+					<option value = 0 disabled selected>Rating</option>
+					<option value = 1>1</option>
+					<option value = 2>2</option>
+					<option value = 3>3</option>
+					<option value = 4>4</option>
+					<option value = 5>5</option>
+					<option value = 6>6</option>
+					<option value = 7>7</option>
+					<option value = 8>8</option>
+					<option value = 9>9</option>
+					<option value = 10>10</option>
+				</select>
+				
+
+				<br />
+
+				<button type="submit" class="btn waves-effect waves-light">Add</button>
+			</form>
+		</header>
+
+		<br />
+		<br />
+
+		<main>
+			<select name="list-change" class="browser-default select-filtru" id="filtru">
+				<option disabled selected>See only:</option>
+				<option value = "ALL">All</option>
+				<option value = "MOVIE">Movies</option>
+				<option value = "BOOK">Books</option>
+				<option value = "RESTAURANT">Restaurants</option>
+				<option value = "GAME">Games</option>
+				<option value = "PARK">Parks</option>
+			</select>
+			<ul>
+				{{#each entries}}
+				{{> entry}}
+				{{/each}}
+			</ul>
+		</main>
+	</div>
+
+	<footer class="page-footer teal">
+	    <div class="container">
+	      	<div class="row">
+	        	<div class="col l6 s12">
+	          		<h5 class="white-text">What is this?</h5>
+	          		<p class="grey-text text-lighten-4">This is basically a place where I store all the books I've read, movies I've seen, places I've visited etc. </p>
+	        	</div>
+	        	<div class="col l4 offset-l2 s12">
+	          		<h5 class="white-text">Other Projects</h5>
+	          		<ul>
+	            		<li><a class="grey-text text-lighten-3" href="http://rares.blog.meteor.com/">rares.blog</a></li>
+	            		<li><a class="grey-text text-lighten-3" href="http://rares.msg.meteor.com/">rares.msg</a></li>
+	            		<li><a class="grey-text text-lighten-3" href="https://www.khanacademy.org/computer-programming/bouncin-ball-beta/4728219568701440">Bouncing Ball</a></li>
+	            		<li><a class="grey-text text-lighten-3" href="https://www.khanacademy.org/computer-programming/simon/5045275214217216">Simon Says</a></li>
+	          		</ul>
+	        	</div>
+	      </div>
+	    </div>
+	    <div class="footer-copyright">
+	    	<div class="container">
+	      		© 2015 rares tam
+	      	</div>
+	    </div>
+	</footer>
+</body>
+
+<template name="entry">
+	<div class="card-panel blue-grey elem">
+		<li>
+			<span style="font-weight: bold; font-size: 15px">[{{type}}]</span>
+			:{{text}}
+			<span style="font-style: italic; padding-right: 70px">({{extra}})</span>
+			<button class="delete btn waves-effect waves-light" onclick="Materialize.toast('Item deleted!', 2000, 'rounded')">&times;</button>
+			<span class="grade">Rating: {{grade}}</span>
+			<!-- {{> rating}} -->
+		</li>
+	</div>
+</template>
+
+<template name="rating">
+	<div class="rateit"></div>
+</template>

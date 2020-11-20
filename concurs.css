@@ -1,0 +1,22 @@
+/* CSS declarations go here */
+.rateit {
+	float: right;
+}
+
+.delete {
+	float: right;
+	font-size: 1em;
+	border: none;
+	position: absolute;
+	top: -7px;
+	right: 0px;
+}
+
+.grade {
+	float: right;
+	margin-right: 90px;
+}
+
+li {
+ position: relative;
+}
